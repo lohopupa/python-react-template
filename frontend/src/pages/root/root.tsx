@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import './style.css';
+import { queryApi } from '../../helpers/api';
 
 type Result = {
   result: string
 }
 
-function App() {
+function Root() {
 
   const [resp, setResp] = useState("")
 
   const getResp = () => {
-    fetch("http://localhost:8080/api/hello-world").then((r) => {
-      r.json().then((res: Result) => setResp(res.result))
-    }).catch((err) => console.error("Something went wrong", err))
+    queryApi("GET", "hello-world").then((res: Result) => setResp(res.result))
+    .catch((err) => console.error("Something went wrong", err))
   }
 
   return (
@@ -31,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default Root;
