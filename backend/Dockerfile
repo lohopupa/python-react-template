@@ -1,5 +1,4 @@
-# FROM python:3.10
-FROM python:3.9.19-alpine3.20
+FROM python:3.10
 
 WORKDIR /app
 
@@ -13,4 +12,4 @@ EXPOSE 5000
 
 WORKDIR /app/src
 
-CMD ["uvicorn", "app:router", "--host", "0.0.0.0", "--port", "5000", "--reload"]
+CMD ["uvicorn", "app:router", "--host", "0.0.0.0", "--port", "5000"]
